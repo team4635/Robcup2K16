@@ -179,8 +179,14 @@ bool isVictim(int iPos)
 }
 bool isBlack()
 {
-  
+  readData();
+  if(blu > 200 && red > 200 && grn > 200)
+  {
+    return true;
+  }
+  return false;
 }
+
 bool getButton()
 {
   
@@ -247,5 +253,4 @@ float getAngle()
 {
   return orientationSensorHeading()/119;
 }
-
 
