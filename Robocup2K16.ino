@@ -20,7 +20,7 @@
 //#include "Posibilidades.h"
 
 // This defines our map dimiensions.
-#define maxSize 19
+#define maxSize 21
 #define mapHeight 2
 
 // Defines our map and the information each cell has.
