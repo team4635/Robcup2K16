@@ -54,3 +54,15 @@ void MovernosHacia(int Posibilidad)
     vMotorBack.write(x+y-angle*factor);     
     }
 }
+void RegistroHistorial()
+int [] HistorialMovimientos [100];
+{
+ if (codigo.length == 1 && !codigo.equals("9"))
+ {
+ 
+ }
+if (codigo.equals('9'))
+{
+
+}
+}
