@@ -16,10 +16,10 @@ char LetraCuadroActual()
   int paredesAbajo=getWalls(3);
   int paredesDerecha=getWalls(2);
   int paredesIzquierda=getWalls(4);
-  bool esNegro=isBlack();
+  boolean esNegro=isBlack();
   
   String codigo = "";
-  char codigoN = 'T';
+  char codigoN = 'O';
   
   if(paredesAbajo==0)
   {
