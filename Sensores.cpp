@@ -51,12 +51,12 @@ void reset() {
 
 void sensorSetup() {
   reset();                  // Send reset to ColorPal
-  serout.begin(sioBaud);
+  serout.begin(colorPinSensorBaud);
   pinMode(colorPinSensor, OUTPUT);
   serout.print("= (00 $ m) !"); // Loop print values, see ColorPAL documentation
   serout.end();              // Discontinue serial port for transmitting
 
-  serin.begin(sioBaud);            // Set up serial port for receiving
+  serin.begin(colorPinSensorBaud);            // Set up serial port for receiving
   pinMode(colorPinSensor, INPUT);
 }
 
@@ -167,6 +167,10 @@ bool isVictim(int iPos)
   return digitalRead(pin);
 }
 bool isBlack()
+{
+  
+}
+bool getButton()
 {
   
 }

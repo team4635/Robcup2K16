@@ -11,5 +11,6 @@
 #include "Arduino.h"
 
 void motorsSetup();
+void MovernosHacia(String P);
 
 #endif

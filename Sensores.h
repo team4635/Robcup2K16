@@ -15,5 +15,6 @@ long getDistance(int iPos);
 int getWalls(int iPos);
 bool isBlack();
 bool isVictim(int iPos);
+bool getButton();
 
 #endif

@@ -8,7 +8,7 @@
 #include "Config.h"
 #include "Sensores.h"
 
-void Victima Encontrada(int direccion)
+void VictimaEncontrada(int direccion)
 {
  
   

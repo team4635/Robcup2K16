@@ -10,4 +10,7 @@
 
 #include "Arduino.h"
 
+void Llenar();
+char LetraCuadroActual();
+
 #endif
