@@ -1,5 +1,5 @@
 /*
- *  Name: Movernos.cpp
+ *  Name: Posibilidades.cpp
  *  Description: 
  * 
  *  
