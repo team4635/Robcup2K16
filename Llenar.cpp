@@ -38,7 +38,7 @@ void LetraCuadroActual()
   int paredesIzquierda=getWalls(4);
   bool esNegro=isBlack();
   
-  String codigo = "";
+  String codigo = "", codigoN = "";
   
   if(paredesAbajo==0){
     codigo=codigo+"1";
@@ -59,44 +59,41 @@ void LetraCuadroActual()
     codigo="0";
   }
   
-  switch(codigo){
-    case "134": codigo='A';
-         break;
-    case '124': codigo='B';
-         break;
-    case "123": codigo='C';
-         break;
-    case "234": codigo='D';
-         break;
-     case "14": codigo='E';
-         break;
-     case "13": codigo='F';
-         break;
-     case "43": codigo='G';
-         break;
-     case "12": codigo='H';
-         break;
-     case "24": codigo='I';
-         break;
-     case "23": codigo='J';
-         break;
-     case "1": codigo='K';
-         break;
-     case "3": codigo='L';
-         break;
-     case "4": codigo='M';
-         break;
-     case "2": codigo='N';
-         break;
-     case "0": codigo='O';
-         break;
-     case "BLACK": codigo='X';
-         break;
-     default:;
-         break;
+
+    if(codigo.equals("134")) codigoN='A';
+     
+    if(codigo.equals("124")) codigoN='B';
+      
+    if(codigo.equals("123")) codigoN='C';
+         
+    if(codigo.equals("234")) codigoN='D';
+        
+    if(codigo.equals("14")) codigoN='E';
+   
+    if(codigo.equals("13")) codigoN='F';
+     
+    if(codigo.equals("43")) codigoN='G';
+     
+    if(codigo.equals("12")) codigoN='H';
+   
+    if(codigo.equals("24")) codigoN='I';
+    
+    if(codigo.equals("23")) codigoN='J';
+
+    if(codigo.equals("1")) codigoN='K';
+        
+    if(codigo.equals("3")) codigoN='L';
+        
+    if(codigo.equals("4")) codigoN='M';
+         
+    if(codigo.equals("2")) codigoN='N';
+         
+    if(codigo.equals("0")) codigoN='O';
+         
+    if(codigo.equals("BLACK")) codigoN='X';
+         
+     
   }
-  
-}
 
 void CertezaCuadroActual(){
   pos posicion = getPosition();
