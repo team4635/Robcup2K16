@@ -74,7 +74,7 @@ if(!codigo.equals("BLACK"))
 
 
 int[] getPosition(){
-  int subUniverso[3];
+  int PosicionActual[3];
   boolean acabo=false;
 
   for(int x=0 ; x<universo.length-1 ; x++ && acabo==false)
@@ -82,9 +82,9 @@ int[] getPosition(){
       for(int p=0 ; p<universo[x][y].length-1 ; p++ && acabo==false)
         if(universo[x][y][p].pos==true){
         acabo==true;
-        subUniverso[0]=x;
-        subUniverso[1]=y;
-        subUniverso[2]=p;
+        PosicionActual[0]=x;
+        PosicionActual[1]=y;
+        PosicionActual[2]=p;
   }
   return subUniverso;
 }
