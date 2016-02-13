@@ -2,19 +2,19 @@
 void ModificarPosicion(int movimiento){
   int posicion[]=getPosicion();
   switch(movimiento){
-    case 1: universo[posicion[0]][[posicion[1]][posicion[2]].pos=false;
-            universo[posicion[0]][[posicion[1]-1][posicion[2]].pos=true;
+    case 1: universo[posicion.x][[posicion.y][posicion.z].pos=false;
+            universo[posicion.x][[posicion.y-1][posicion.z].pos=true;
       break;
-    case 2: universo[posicion[0]][[posicion[1]][posicion[2]].pos=false;
-            universo[posicion[0]+1][[posicion[1]][posicion[2]].pos=true;
+    case 2: universo[posicion.x][[posicion.y][posicion.z].pos=false;
+            universo[posicion.x+1][[posicion.y][posicion.z].pos=true;
       break;
-    case 3: universo[posicion[0]][[posicion[1]][posicion[2]].pos=false;
-            universo[posicion[0]][[posicion[1]+1][posicion[2]].pos=true;
+    case 3: universo[posicion.x][[posicion.y][posicion.z].pos=false;
+            universo[posicion.x][[posicion.y+1][posicion.z].pos=true;
       break;
-    case 4: universo[posicion[0]][[posicion[1]][posicion[2]].pos=false;
-            universo[posicion[0]-1][[posicion[1]][posicion[2]].pos=true;
+    case 4: universo[posicion.x][[posicion.y][posicion.z].pos=false;
+            universo[posicion.x-1][[posicion.y][posicion.z].pos=true;
       break;
-    default: universo[posicion[0]][[posicion[1]][posicion[2]].pos=true;
+    default: universo[posicion.x][[posicion.y][posicion.z].pos=true;
       break;
 }
 
@@ -87,7 +87,7 @@ void LetraCuadroActual(){
 
 void CertezaCuadroActual(){
   int posicion[]=getPosicion();
-  universo[posicion[0]][[posicion[1]][posicion[2]].certeza=2;
+  universo[posicion.x][[posicion.y][posicion.z].certeza=2;
 }
 
 
