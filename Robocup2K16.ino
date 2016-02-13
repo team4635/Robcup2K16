@@ -20,12 +20,15 @@
 #include "Posibilidades.h"
 #include "Config.h"
 #include "Sensores.h"
+#include "VictimaEncontrada.h"
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(22, 24, 26, 28, 30, 32);
-
+int toggle = 0;
+float anglet = 0;
 void setup() 
 {
+  Serial.begin(9600);
   // Heat Sensor Setup
   pinMode(heatPinBack, INPUT);
   pinMode(heatPinFront, INPUT);
@@ -41,7 +44,7 @@ void setup()
   pinMode(echoPinRight, INPUT);
   pinMode(trigPinLeft, OUTPUT);
   pinMode(echoPinLeft, INPUT);
-
+  pinMode(ledPin,OUTPUT);
   //Vex Motors Setup
   motorsSetup();
 
@@ -54,12 +57,15 @@ void setup()
   lcd.print("Saving the Whales!");
   lcd.clear();
 
+  universo[6][6][1].bPosicion = true;
+
 }
 
 void loop() 
 {
-  while(getButton()==false)
+  while(toggle==LOW)
   {
+    /*
     lcd.setCursor(0, 0);
     lcd.print(getDistance(2));
     lcd.setCursor(4,0);
@@ -79,16 +85,32 @@ void loop()
     lcd.print(getDistance(3));
     lcd.setCursor(11,1);
     lcd.print(isVictim(3));
-    
+    */
+    anglet += getAngle();
+    lcd.setCursor(0, 0);
+    lcd.print(anglet);
+    Serial.println(anglet);
     delay(500);
     lcd.clear();
-  }
 
-  Llenar();
+    toggle = getButton();
+    //test();  
+  }
+  
+  while(toggle== HIGH)
+  {
+    lcd.clear();
+    lcd.print("Llenar Function");
+    Llenar();
+    delay(1000);
   MovernosHacia(posibilidades(LetraCuadroActual()));
   if(isBlack())aUltimaD();
-  if(isVictima(1))VictimaEncontrada(1);
-  if(isVictima(2))VictimaEncontrada(2);
-  if(isVictima(3))VictimaEncontrada(3);
-  if(isVictima(4))VictimaEncontrada(4);
+  if(isVictim(1))VictimaEncontrada(1);
+  if(isVictim(2))VictimaEncontrada(2);
+  if(isVictim(3))VictimaEncontrada(3);
+  if(isVictim(4))VictimaEncontrada(4);
   
+  if(getButton()==1) toggle = 0;
+  }
+}
+

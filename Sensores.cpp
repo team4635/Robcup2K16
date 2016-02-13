@@ -92,6 +92,28 @@ void setupGyro()
 }
 
 void sensorSetup() {
+
+// Before initializing the IMU, there are a few settings
+  // we may need to adjust. Use the settings struct to set
+  // the device's communication mode and addresses:
+  imu.settings.device.commInterface = IMU_MODE_I2C;
+  imu.settings.device.mAddress = LSM9DS1_M;
+  imu.settings.device.agAddress = LSM9DS1_AG;
+  // The above lines will only take effect AFTER calling
+  // imu.begin(), which verifies communication with the IMU
+  // and turns it on.
+  if (!imu.begin())
+  {
+    Serial.println("Failed to communicate with LSM9DS1.");
+    Serial.println("Double-check wiring.");
+    Serial.println("Default settings in this sketch will " \
+                  "work for an out of the box LSM9DS1 " \
+                  "Breakout, but may need to be modified " \
+                  "if the board jumpers are.");
+    while (1)
+      ;
+  }
+  
   reset();                  // Send reset to ColorPal
   serout.begin(colorPinSensorBaud);
   pinMode(colorPinSensor, OUTPUT);
@@ -220,9 +242,10 @@ bool isBlack()
   return false;
 }
 
-bool getButton()
+int getButton()
 {
-  return digitalRead(btnPin);
+  int value = digitalRead(btnPin);
+  return value;
 }
 
 float orientationSensorHeading()
@@ -251,6 +274,13 @@ float orientationSensorHeading()
 }
 float getAngle()
 {
+  return orientationSensorHeading()/119;
+}
+float getAngleX()
+{
+  imu.readGyro();
+
+  float fValue = imu.calcGyro(imu.gx);
   return orientationSensorHeading()/119;
 }
 

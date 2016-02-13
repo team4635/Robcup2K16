@@ -10,4 +10,11 @@
 
 #include "Arduino.h"
 
+void VictimaEncontrada(int direccion);
+void Rotar(int direccion);
+void Deploy();
+void CorregirRotar(int direccion);
+void FlashingLED();
+
+
 #endif

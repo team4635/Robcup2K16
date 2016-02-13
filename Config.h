@@ -39,10 +39,12 @@ typedef struct pos{
 #define heatPinLeft 43
 #define heatPinFront 42
 
-#define colorPinSensor 40
+#define colorPinSensor 19
 
-#define btnPin 40
+#define ledPin 37
 
-extern celda universo[21][21][2];
+#define btnPin 39
+
+extern celda universo[13][13][3];
 
 #endif

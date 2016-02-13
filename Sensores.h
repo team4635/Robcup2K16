@@ -17,5 +17,6 @@ bool isBlack();
 bool isVictim(int iPos);
 bool getButton();
 float getAngle();
+float getAngleX();
 
 #endif
