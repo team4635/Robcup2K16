@@ -25,14 +25,14 @@ typedef struct pos{
 #define frontMotor 5
 #define backMotor 9
 
-#define trigPinRight 10
-#define echoPinRight 10
-#define trigPinLeft 10
-#define echoPinLeft 10
-#define trigPinFront 10
-#define echoPinFront 10
-#define trigPinBack 10
-#define echoPinBack 10
+#define trigPinRight 50
+#define echoPinRight 51
+#define trigPinLeft 48
+#define echoPinLeft 49
+#define trigPinFront 46
+#define echoPinFront 47
+#define trigPinBack 52
+#define echoPinBack 53
 
 extern celda universo[21][21][9];
 
