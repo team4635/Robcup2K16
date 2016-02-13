@@ -37,6 +37,8 @@ char decisionR(String codigo){
   if(codigo.length()<= 1)
   posib=codigo.charAt(0);
   else{
+    arrayD[countD]= countM;
+    countD++;
     long m =random(codigo.length());
     posib = codigo.charAt(m);
      }
@@ -51,23 +53,25 @@ void MovernosHacia(String P)
   {
     case '1': x = 0;
             y = num;
-            arrayM[countM]=1;
+            arrayM[countM]=3;
             countM++;
       break;
     case '2': x = num;
             y = 0;
-            arrayM[countM]=2;
+            arrayM[countM]=4;
             countM++;
       break;
     case '3': x = 0;
             y = -num;
-            arrayM[countM]=3;
+            arrayM[countM]=1;
             countM++;
       break;
     case '4': x = -num;
             y = 0;
-            arrayM[countM]=4;
+            arrayM[countM]=2;
             countM++;
+      break;
+     case '9': aUltimaD();
       break;
     default: x = 0;
              y = 0; 
@@ -88,6 +92,12 @@ void MovernosHacia(String P)
 void EsBlackTile()
 {
 
+}
+
+void aUltimaD(){
+  for(int h=countM ; h>0 ; h--;){
+    MovernosHacia(arrayM[h]);
+  }
 }
 void EstarEnRampa()
 {
