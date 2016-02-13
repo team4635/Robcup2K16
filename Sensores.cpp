@@ -1,7 +1,19 @@
 /*
  *  Name: Sensores.cpp
- *  Description: 
- * 
+ *  Description: Defines the sensor functions.
+ *  
+ *  Sensor configurations
+ *   
+ *   
+ *  Sensor positions relative to its default orientation:
+ *  
+ *                        Front
+ *                          1
+ *                          -
+ *                  Left 4 | | 2 Right
+ *                          -
+ *                          3
+ *                         Back
  *  
  */
 
@@ -21,18 +33,18 @@ long getDistance(int iPos)
   int echoPin = 0;
   switch(iPos)
   {
-    case 1:
-      trigPin = trigPinRight;
-      echoPint = echoPinRight;
-    case 2:
-      trigPin = trigPinLeft;
-      echoPint = echoPinLeft;
-    case 3:
+     case 1:
       trigPin = trigPinFront;
       echoPint = echoPinFront;
-    case 4:
+    case 2:
+      trigPin = trigPinRight;
+      echoPint = echoPinRight;
+    case 3:
       trigPin = trigPinBack;
       echoPint = echoPinBack;
+    case 4:
+      trigPin = trigPinLeft;
+      echoPint = echoPinLeft;
     default:
       trigPin = trigPinRight;
       echoPint = echoPinRight;
