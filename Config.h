@@ -5,7 +5,7 @@
 struct celda{
   int iCerteza;
   int iDecision;
-  boolean bPosicion;
+  bool bPosicion;
   char cLetra;
 };
 typedef struct pos{
@@ -18,9 +18,6 @@ typedef struct pos{
 // This defines our map dimiensions.
 #define maxSize 21
 #define mapHeight 2
-
-// This is our array of the map.
-celda universo[21][21][9];
 
 //Definitions of motors in the drivetrain
 #define leftMotor 3
@@ -36,5 +33,7 @@ celda universo[21][21][9];
 #define echoPinFront 10
 #define trigPinBack 10
 #define echoPinBack 10
+
+extern celda universo[21][21][9];
 
 #endif
