@@ -1,30 +1,42 @@
+/*
+ *  Name: Llenar.cpp
+ *  Description: 
+ * 
+ *  
+ */
 
-void ModificarPosicion(int movimiento){
-  int posicion[]=getPosicion();
+ #include "Posibilidades.h"
+ #include "Config.h"
+ #include "Sensores.h"
+
+void ModificarPosicion(int movimiento)
+{
+  pos posicion = getPosition();
   switch(movimiento){
-    case 1: universo[posicion.x][[posicion.y][posicion.z].pos=false;
-            universo[posicion.x][[posicion.y-1][posicion.z].pos=true;
+    case 1: universo[posicion.x][posicion.y][posicion.z].bPosicion = false;
+            universo[posicion.x][posicion.y-1][posicion.z].bPosicion = true;
       break;
-    case 2: universo[posicion.x][[posicion.y][posicion.z].pos=false;
-            universo[posicion.x+1][[posicion.y][posicion.z].pos=true;
+    case 2: universo[posicion.x][posicion.y][posicion.z].bPosicion = false;
+            universo[posicion.x+1][posicion.y][posicion.z].bPosicion = true;
       break;
-    case 3: universo[posicion.x][[posicion.y][posicion.z].pos=false;
-            universo[posicion.x][[posicion.y+1][posicion.z].pos=true;
+    case 3: universo[posicion.x][posicion.y][posicion.z].bPosicion = false;
+            universo[posicion.x][posicion.y+1][posicion.z].bPosicion = true;
       break;
-    case 4: universo[posicion.x][[posicion.y][posicion.z].pos=false;
-            universo[posicion.x-1][[posicion.y][posicion.z].pos=true;
+    case 4: universo[posicion.x][posicion.y][posicion.z].bPosicion = false;
+            universo[posicion.x-1][posicion.y][posicion.z].bPosicion = true;
       break;
-    default: universo[posicion.x][[posicion.y][posicion.z].pos=true;
+    default: universo[posicion.x][posicion.y][posicion.z].bPosicion = true;
       break;
   }
 }
 
-void LetraCuadroActual(){
-  int ParedesArriba=getWalls(1); 
+void LetraCuadroActual()
+{
+  int paredesArriba=getWalls(1); 
   int paredesAbajo=getWalls(3);
   int paredesDerecha=getWalls(2);
   int paredesIzquierda=getWalls(4);
-  boolean esNegro=isBlack();
+  bool esNegro=isBlack();
   
   String codigo = "";
   
@@ -87,22 +99,7 @@ void LetraCuadroActual(){
 }
 
 void CertezaCuadroActual(){
-  int posicion[]=getPosicion();
-  universo[posicion.x][[posicion.y][posicion.z].certeza=2;
+  pos posicion = getPosition();
+  universo[posicion.x][posicion.y][posicion.z].iCerteza = 2;
 }
-
-
-/**
-void Lectura(int sensor){ 
-  paredes=iSensor.getWalls();
-  switch (sensor)
-    case 1: 
-      char cerca='D';
-      char lejos='B';
-      universo[posicion[0]][[posicion[1]-paredes][posicion[2]].letra=cerca;
-      universo[posicion[0]][[posicion[1]-paredes-1][posicion[2]].letra=lejos;
-      universo[posicion[0]][[posicion[1]-paredes][posicion[2]].certeza=1;
-      universo[posicion[0]][[posicion[1]-paredes-1][posicion[2]].certeza=1;
-}
-**/
 

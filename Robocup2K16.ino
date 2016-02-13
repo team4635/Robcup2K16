@@ -19,27 +19,6 @@
 //#include "Movernos.h"
 //#include "Posibilidades.h"
 
-// This defines our map dimiensions.
-#define maxSize 21
-#define mapHeight 2
-
-// Defines our map and the information each cell has.
-struct celda{
-  int iCerteza;
-  int iDecision;
-  boolean bPosicion;
-  char cLetra;
-}
-struct pos{
-  int x;
-  int y;
-  int z;
-}
-// This is our array of the map.
-celda universo[mapSize][mapSize][mapHeight];
-
-
-
 void setup() 
 {
   // put your setup code here, to run once:

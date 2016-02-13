@@ -9,8 +9,9 @@
 #define POSIBILIDADES_H
 
 #include "Arduino.h"
+#include "Config.h"
 
 String posibilidades(char letra);
-int[] getPosition();
+pos getPosition();
 
 #endif

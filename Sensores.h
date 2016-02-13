@@ -11,6 +11,8 @@
 #include "Arduino.h"
 
 long getDistance(int iPos);
+int getWalls(int iPos);
+bool isBlack();
 
 
 #endif
