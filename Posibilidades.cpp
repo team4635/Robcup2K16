@@ -1,5 +1,5 @@
 String posibilidades(char letra){
-  String codigo ="";
+  String codigo ="", newCodigo ="";
   int posicion[] = getPosicion();
 
   switch(letra){
@@ -35,52 +35,37 @@ String posibilidades(char letra){
          break;
      case 'P': codigo="1234";
          break;
-     case 'X': codigo="BLACK";
-         break;
      default:;
          break;
     }
 
 if(!codigo.equals("BLACK"))
-    for(int h=0; h<codigo.length()-1;h++ && !codigo.equals("9")){
-      switch(codigo.charAt(h))
+    for(int h=0; h<codigo.length()-1;h++){
+      switch(codigo.charAt(h)){
         case '1': 
-          if(universo[posicion[0]][posicion[1]-1][posicion[2]].cert==2){
-            if(codigo.length()!=1){
-            codigo.subString(h);
-            h--;}
-            else
-            codigo = "9";
+          if(universo[posicion[0]][posicion[1]-1][posicion[2]].cert!=2){
+              newCodigo=newCodigo+codigo.charAt(h)
             }
         break;
         
         case '2': 
-          if(universo[posicion[0]+1][posicion[1]][posicion[2]].cert==2){
-            if(codigo.length()!=1){
-            codigo.subString(h);
-            h--;}
-            else
-            codigo = "9";}
+          if(universo[posicion[0]+1][posicion[1]][posicion[2]].cert!=2){
+            newCodigo=newCodigo+codigo.charAt(h)}
         break;
 
         case '3': 
-          if(universo[posicion[0]][posicion[1]+1][posicion[2]].cert==2){
-            if(codigo.length()!=1){
-            codigo.subString(h);
-            h--;}
-            else
-            codigo = "9";}
+          if(universo[posicion[0]][posicion[1]+1][posicion[2]].cert!=2){
+            newCodigo=newCodigo+codigo.charAt(h)}
         break;
 
         case '4': 
-          if(universo[posicion[0]-1][posicion[1]][posicion[2]].cert==2){
-            if(codigo.length()!=1){
-            codigo.subString(h);
-            h--;}
-            else
-            codigo = "9";}
+          if(universo[posicion[0]-1][posicion[1]][posicion[2]].cert!=2){
+            newCodigo=newCodigo+codigo.charAt(h)}
         break;
-    }
+    }}
+
+    if(newCodigo.equals(""))
+    newCodigo = "9";
     
     return codigo;
   }
