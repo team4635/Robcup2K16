@@ -14,6 +14,8 @@ bool bMotorsRotated;
 int x = 0;
 int y = 0;
 float angle = 0;
+int HistorialMovimientos [100];
+int countHistorial = 0;
 
 void motorsSetup()
 {
@@ -54,15 +56,25 @@ void MovernosHacia(int Posibilidad)
     vMotorBack.write(x+y-angle*factor);     
     }
 }
-void RegistroHistorial()
-int [] HistorialMovimientos [100];
+void RegistroHistorial(int DirMovimiento)
 {
- if (codigo.length == 1 && !codigo.equals("9"))
- {
- 
- }
-if (codigo.equals('9'))
+  Historial[countHistorial] = countHistorial;
+
+
+
+//if solo un camino, empezar a registrar el camino.
+  int PosicionActual [] = getPosition();
+  char CeldaActual = Universo[PosicionActual[0]][PosicionActual[1]][0].letra;
+  if( CeldaActual == 'K'||CeldaActual == 'L'||CeldaActual == 'M'||CeldaActual == 'N')
+
+
+
+}
+void EsBlackTile()
 {
 
 }
+void EstarEnRampa()
+{
+  
 }
