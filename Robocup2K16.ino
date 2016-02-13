@@ -19,6 +19,10 @@
 #include "Movernos.h"
 //#include "Posibilidades.h"
 #include "Config.h"
+#include "Sensores.h"
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(22, 24, 26, 28, 30, 32);
 
 void setup() 
 {
@@ -41,10 +45,41 @@ void setup()
   //Vex Motors Setup
   motorsSetup();
 
+  //LCD Setup
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  lcd.print("Saving the Whales!");
+  lcd.clear();
+
 }
 
 void loop() 
 {
+  lcd.setCursor(0, 0);
   // put your main code here, to run repeatedly:
+  lcd.print(getDistance(2));
+  lcd.setCursor(4,0);
+  lcd.print(isVictim(2));
 
+  lcd.setCursor(6, 0);
+  // put your main code here, to run repeatedly:
+  lcd.print(getDistance(4));
+  lcd.setCursor(11,0);
+  lcd.print(isVictim(4));
+
+  lcd.setCursor(0, 1);
+  // put your main code here, to run repeatedly:
+  lcd.print(getDistance(1));
+  lcd.setCursor(4,1);
+  lcd.print(isVictim(1));
+
+  lcd.setCursor(6, 1);
+  // put your main code here, to run repeatedly:
+  lcd.print(getDistance(3));
+  lcd.setCursor(11,1);
+  lcd.print(isVictim(3));
+  
+  delay(500);
+  lcd.clear();
 }
