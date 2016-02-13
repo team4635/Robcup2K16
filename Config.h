@@ -41,6 +41,6 @@ typedef struct pos{
 
 #define colorPinSensor 40
 
-extern celda universo[21][21][9];
+extern celda universo[21][21][2];
 
 #endif

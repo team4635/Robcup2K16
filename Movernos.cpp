@@ -79,7 +79,7 @@ void MovernosHacia(String P)
   }
   
   long lCurrentDistance = getDistance(posibilidad);
-  while(lCurrentDistance!=(lCurrentDistance-30))
+  while(getDistance(posibilidad) < (lCurrentDistance-30))
   {
   //Angulo //Actualizar el angulo para corregir la trayectoria
   vMotorLeft.write(-x+y-angle*factor);

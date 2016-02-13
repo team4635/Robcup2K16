@@ -84,4 +84,7 @@ void loop()
     lcd.clear();
   }
 
+  Llenar();
+  //MovernosHacia(posibilidades(LetraCuadroActual()));
+  //String posibilidades(char);
 }
