@@ -87,19 +87,73 @@ void MovernosHacia(String P)
   vMotorFront.write(-x-y-angle*factor);
   vMotorBack.write(x+y-angle*factor);     
   }
+  vMotorLeft.write(0);
+  vMotorRight.write(0);
+  vMotorFront.write(0);
+  vMotorBack.write(0);     
 }
 void aUltimaD(){
 
   for(int h=countM ; h>0 ; h--){
-    MovernosHacia(String(arrayM[h]));
+    {
+      char posibilidad = decisionR(String(arrayM[h]));
+      switch(posibilidad)
+      {
+        case '1': x = 0;
+                y = num;
+                arrayM[countM]=3;
+          break;
+        case '2': x = num;
+                y = 0;
+                arrayM[countM]=4;
+          break;
+        case '3': x = 0;
+                y = -num;
+                arrayM[countM]=1;
+          break;
+        case '4': x = -num;
+                y = 0;
+                arrayM[countM]=2;
+          break;
+         //case '9': aUltimaD();
+          break;
+        default: x = 0;
+                 y = 0; 
+          break;
+      }
+  
+  long lCurrentDistance = getDistance(posibilidad);
+  while(getDistance(posibilidad) < (lCurrentDistance-30))
+  {
+  //Angulo //Actualizar el angulo para corregir la trayectoria
+  vMotorLeft.write(-x+y-angle*factor);
+  vMotorRight.write(x-y-angle*factor);
+  vMotorFront.write(-x-y-angle*factor);
+  vMotorBack.write(x+y-angle*factor);     
   }
-}
-void EsBlackTile()
-{
-
+  vMotorLeft.write(0);
+  vMotorRight.write(0);
+  vMotorFront.write(0);
+  vMotorBack.write(0);
+  countM--;  
+  }
+  countD--;
 }
 
 void EstarEnRampa()
 {
+  
+}
+void Rotacion(float AnguloDeseado)
+{
+  float fAnguloActual = 0;
+  while(fAnguloActual<AnguloDeseado)
+  {
+   vMotorLeft.write(100);
+   vMotorRight.write(100);
+   vMotorFront.write(100);
+   vMotorBack.write(100);
+   fAnguloActual += getAngle();
+  }
   
 }

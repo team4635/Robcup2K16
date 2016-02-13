@@ -42,8 +42,6 @@ void setup()
   pinMode(trigPinLeft, OUTPUT);
   pinMode(echoPinLeft, INPUT);
 
-  pinMode(btnPin, INPUT);
-
   //Vex Motors Setup
   motorsSetup();
 
@@ -87,6 +85,10 @@ void loop()
   }
 
   Llenar();
-  //MovernosHacia(posibilidades(LetraCuadroActual()));
-  //String posibilidades(char);
-}
+  MovernosHacia(posibilidades(LetraCuadroActual()));
+  if(isBlack())aUltimaD();
+  if(isVictima(1))VictimaEncontrada(1);
+  if(isVictima(2))VictimaEncontrada(2);
+  if(isVictima(3))VictimaEncontrada(3);
+  if(isVictima(4))VictimaEncontrada(4);
+  

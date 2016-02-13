@@ -12,5 +12,7 @@
 
 void motorsSetup();
 void MovernosHacia(String P);
+void aUltimaD();
+void Rotacion(float AnguloDeseado);
 
 #endif
