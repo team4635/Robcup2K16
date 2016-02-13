@@ -20,10 +20,10 @@ typedef struct pos{
 #define mapHeight 2
 
 //Definitions of motors in the drivetrain
-#define leftMotor 3
-#define rightMotor 6
-#define frontMotor 5
-#define backMotor 9
+#define leftMotor 2
+#define rightMotor 3
+#define frontMotor 4
+#define backMotor 5
 
 #define trigPinRight 50
 #define echoPinRight 51
@@ -33,6 +33,13 @@ typedef struct pos{
 #define echoPinFront 47
 #define trigPinBack 52
 #define echoPinBack 53
+
+#define heatPinBack 45
+#define heatPinRight 44
+#define heatPinLeft 43
+#define heatPinFront 42
+
+#define colorPinSensor 40
 
 extern celda universo[21][21][9];
 

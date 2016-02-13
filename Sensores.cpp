@@ -65,6 +65,10 @@ int getWalls(int iPos)
   int m = getDistance(iPos)/30;
   return m;
 }
+bool isVictim(int iPos)
+{
+  
+}
 bool isBlack()
 {
   

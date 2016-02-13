@@ -16,12 +16,30 @@
 // Include all the functions from files
 // !!!Note!!!: Comment out the ones you aren't using
 //#include "Llenar.h"
-//#include "Movernos.h"
+#include "Movernos.h"
 //#include "Posibilidades.h"
+#include "Config.h"
 
 void setup() 
 {
-  // put your setup code here, to run once:
+  // Heat Sensor Setup
+  pinMode(heatPinBack, INPUT);
+  pinMode(heatPinFront, INPUT);
+  pinMode(heatPinRight, INPUT);
+  pinMode(heatPinLeft, INPUT);
+
+  // Ultrasonic Sensor Setup
+  pinMode(trigPinBack, OUTPUT);
+  pinMode(echoPinBack, INPUT);
+  pinMode(trigPinFront, OUTPUT);
+  pinMode(echoPinFront, INPUT);
+  pinMode(trigPinRight, OUTPUT);
+  pinMode(echoPinRight, INPUT);
+  pinMode(trigPinLeft, OUTPUT);
+  pinMode(echoPinLeft, INPUT);
+
+  //Vex Motors Setup
+  motorsSetup();
 
 }
 
