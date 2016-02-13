@@ -1,11 +1,6 @@
-int posicion[]=getPosicion();
 
-int sensorUno;
-int sensorDos;
-int sensorTres;
-int sensorCuatro;
-
-void modificarPosicion(int movimiento){
+void ModificarPosicion(int movimiento){
+  int posicion[]=getPosicion();
   switch(movimiento){
     case 1: universo[posicion[0]][[posicion[1]][posicion[2]].pos=false;
             universo[posicion[0]][[posicion[1]-1][posicion[2]].pos=true;
@@ -23,7 +18,7 @@ void modificarPosicion(int movimiento){
       break;
 }
 
-void cuadroActual(){
+void LetraCuadroActual(){
   int ParedesArriba=getWalls(1); 
   int paredesAbajo=getWalls(3);
   int paredesDerecha=getWalls(2);
@@ -88,6 +83,11 @@ void cuadroActual(){
          break;
   }
   
+}
+
+void CertezaCuadroActual(){
+  int posicion[]=getPosicion();
+  universo[posicion[0]][[posicion[1]][posicion[2]].certeza=2;
 }
 
 
