@@ -16,6 +16,7 @@ void ModificarPosicion(int movimiento){
       break;
     default: universo[posicion.x][[posicion.y][posicion.z].pos=true;
       break;
+  }
 }
 
 void LetraCuadroActual(){
