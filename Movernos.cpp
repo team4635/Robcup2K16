@@ -45,7 +45,6 @@ char decisionR(String codigo){
      return posib;
 }
 
-
 void MovernosHacia(String P)
 {
   char posibilidad = decisionR(P);
@@ -71,7 +70,7 @@ void MovernosHacia(String P)
             arrayM[countM]=2;
             countM++;
       break;
-     case '9': aUltimaD();
+     //case '9': aUltimaD();
       break;
     default: x = 0;
              y = 0; 
@@ -89,16 +88,16 @@ void MovernosHacia(String P)
   vMotorBack.write(x+y-angle*factor);     
   }
 }
+void aUltimaD(){
+  for(int h=countM ; h>0 ; h--){
+    MovernosHacia(arrayM[h]);
+  }
+}
 void EsBlackTile()
 {
 
 }
 
-void aUltimaD(){
-  for(int h=countM ; h>0 ; h--;){
-    MovernosHacia(arrayM[h]);
-  }
-}
 void EstarEnRampa()
 {
   

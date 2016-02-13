@@ -10,6 +10,7 @@
 
 #include "Arduino.h"
 
+void sensorSetup();
 long getDistance(int iPos);
 int getWalls(int iPos);
 bool isBlack();

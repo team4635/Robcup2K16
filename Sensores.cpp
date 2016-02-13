@@ -22,12 +22,38 @@
 #include <SoftwareSerial.h>
 
 #define unused 255         // Non-existant pin # for SoftwareSerial
-#define sioBaud 4800
+#define colorPinSensorBaud 4800
 #define waitDelay 200
 
 // Set up two software serials on the same pin.
 SoftwareSerial serin(colorPinSensor, unused);
 SoftwareSerial serout(unused, colorPinSensor);
+
+
+// Reset ColorPAL; see ColorPAL documentation for sequence
+void reset() {
+  delay(200);
+  pinMode(colorPinSensor, OUTPUT);
+  digitalWrite(colorPinSensor, LOW);
+  pinMode(colorPinSensor, INPUT);
+  while (digitalRead(colorPinSensor) != HIGH);
+  pinMode(colorPinSensor, OUTPUT);
+  digitalWrite(colorPinSensor, LOW);
+  delay(80);
+  pinMode(colorPinSensor, INPUT);
+  delay(waitDelay);
+}
+
+void sensorSetup() {
+  reset();                  // Send reset to ColorPal
+  serout.begin(sioBaud);
+  pinMode(colorPinSensor, OUTPUT);
+  serout.print("= (00 $ m) !"); // Loop print values, see ColorPAL documentation
+  serout.end();              // Discontinue serial port for transmitting
+
+  serin.begin(sioBaud);            // Set up serial port for receiving
+  pinMode(colorPinSensor, INPUT);
+}
 
 long getDistance(int iPos)
 {
