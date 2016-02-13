@@ -58,6 +58,39 @@ void reset() {
   delay(waitDelay);
 }
 
+void setupGyro()
+{
+  // [enabled] turns the gyro on or off.
+  imu.settings.gyro.enabled = true;  // Enable the gyro
+  // [scale] sets the full-scale range of the gyroscope.
+  // scale can be set to either 245, 500, or 2000
+  imu.settings.gyro.scale = 245; // Set scale to +/-245dps
+  // [sampleRate] sets the output data rate (ODR) of the gyro
+  // sampleRate can be set between 1-6
+  // 1 = 14.9    4 = 238
+  // 2 = 59.5    5 = 476
+  // 3 = 119     6 = 952
+  imu.settings.gyro.sampleRate = 3; // 59.5Hz ODR
+  // [bandwidth] can set the cutoff frequency of the gyro.
+  // Allowed values: 0-3. Actual value of cutoff frequency
+  // depends on the sample rate. (Datasheet section 7.12)
+  imu.settings.gyro.bandwidth = 0;
+  // [lowPowerEnable] turns low-power mode on or off.
+  imu.settings.gyro.lowPowerEnable = false; // LP mode off
+  // [HPFEnable] enables or disables the high-pass filter
+  imu.settings.gyro.HPFEnable = true; // HPF disabled
+  // [HPFCutoff] sets the HPF cutoff frequency (if enabled)
+  // Allowable values are 0-9. Value depends on ODR.
+  // (Datasheet section 7.14)
+  imu.settings.gyro.HPFCutoff = 1; // HPF cutoff = 4Hz
+  // [flipX], [flipY], and [flipZ] are booleans that can
+  // automatically switch the positive/negative orientation
+  // of the three gyro axes.
+  imu.settings.gyro.flipX = false; // Don't flip X
+  imu.settings.gyro.flipY = false; // Don't flip Y
+  imu.settings.gyro.flipZ = false; // Don't flip Z
+}
+
 void sensorSetup() {
   reset();                  // Send reset to ColorPal
   serout.begin(colorPinSensorBaud);
@@ -189,40 +222,7 @@ bool isBlack()
 
 bool getButton()
 {
-  
-}
-
-void setupGyro()
-{
-  // [enabled] turns the gyro on or off.
-  imu.settings.gyro.enabled = true;  // Enable the gyro
-  // [scale] sets the full-scale range of the gyroscope.
-  // scale can be set to either 245, 500, or 2000
-  imu.settings.gyro.scale = 245; // Set scale to +/-245dps
-  // [sampleRate] sets the output data rate (ODR) of the gyro
-  // sampleRate can be set between 1-6
-  // 1 = 14.9    4 = 238
-  // 2 = 59.5    5 = 476
-  // 3 = 119     6 = 952
-  imu.settings.gyro.sampleRate = 3; // 59.5Hz ODR
-  // [bandwidth] can set the cutoff frequency of the gyro.
-  // Allowed values: 0-3. Actual value of cutoff frequency
-  // depends on the sample rate. (Datasheet section 7.12)
-  imu.settings.gyro.bandwidth = 0;
-  // [lowPowerEnable] turns low-power mode on or off.
-  imu.settings.gyro.lowPowerEnable = false; // LP mode off
-  // [HPFEnable] enables or disables the high-pass filter
-  imu.settings.gyro.HPFEnable = true; // HPF disabled
-  // [HPFCutoff] sets the HPF cutoff frequency (if enabled)
-  // Allowable values are 0-9. Value depends on ODR.
-  // (Datasheet section 7.14)
-  imu.settings.gyro.HPFCutoff = 1; // HPF cutoff = 4Hz
-  // [flipX], [flipY], and [flipZ] are booleans that can
-  // automatically switch the positive/negative orientation
-  // of the three gyro axes.
-  imu.settings.gyro.flipX = false; // Don't flip X
-  imu.settings.gyro.flipY = false; // Don't flip Y
-  imu.settings.gyro.flipZ = false; // Don't flip Z
+  return digitalRead(btnPin);
 }
 
 float orientationSensorHeading()

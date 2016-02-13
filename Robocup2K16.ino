@@ -42,6 +42,8 @@ void setup()
   pinMode(trigPinLeft, OUTPUT);
   pinMode(echoPinLeft, INPUT);
 
+  pinMode(btnPin, INPUT);
+
   //Vex Motors Setup
   motorsSetup();
 
