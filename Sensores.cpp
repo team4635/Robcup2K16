@@ -67,8 +67,8 @@ long getDistance(int iPos)
   return lDuration / 58.2;
  }
 
-int getWalls(){
-  int m = getDistance()/30;
+int getWalls(iPos){
+  int m = getDistance(iPos)/30;
   return m;
 }
 
