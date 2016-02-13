@@ -64,9 +64,16 @@ void loop()
 
   lcd.setCursor(6, 0);
   // put your main code here, to run repeatedly:
+<<<<<<< HEAD
   lcd.print(getDistance(4));
   lcd.setCursor(11,0);
   lcd.print(isVictim(4));
+=======
+  
+  Llenar();
+  MovernosHacia(Posibilidad(LetraCuadroActual()));
+  //String posibilidades(char);
+>>>>>>> origin/master
 
   lcd.setCursor(0, 1);
   // put your main code here, to run repeatedly:

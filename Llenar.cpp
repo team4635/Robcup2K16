@@ -8,6 +8,13 @@
  #include "Posibilidades.h"
  #include "Config.h"
  #include "Sensores.h"
+ 
+void Llenar()
+{
+  //ModificarPosicion();
+  LetraCuadroActual();
+  CertezaCuadroActual();
+}
 
 void ModificarPosicion(int movimiento)
 {
@@ -30,7 +37,7 @@ void ModificarPosicion(int movimiento)
   }
 }
 
-void LetraCuadroActual()
+char LetraCuadroActual()
 {
   int paredesArriba=getWalls(1); 
   int paredesAbajo=getWalls(3);
@@ -38,7 +45,8 @@ void LetraCuadroActual()
   int paredesIzquierda=getWalls(4);
   bool esNegro=isBlack();
   
-  String codigo = "", codigoN = "";
+  String codigo = "",
+  char codigoN = '';
   
   if(paredesAbajo==0){
     codigo=codigo+"1";
@@ -92,7 +100,7 @@ void LetraCuadroActual()
          
     if(codigo.equals("BLACK")) codigoN='X';
          
-     
+     return codigoN;
   }
 
 void CertezaCuadroActual(){
