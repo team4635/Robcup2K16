@@ -17,15 +17,8 @@
  *  
  */
 
-#define trigPinRight 10
-#define echoPinRight 10
-#define trigPinLeft 10
-#define echoPinLeft 10
-#define trigPinFront 10
-#define echoPinFront 10
-#define trigPinBack 10
-#define echoPinBack 10
-
+#include "Arduino.h"
+#include "Config.h"
 
 long getDistance(int iPos)
 {
@@ -35,19 +28,19 @@ long getDistance(int iPos)
   {
      case 1:
       trigPin = trigPinFront;
-      echoPint = echoPinFront;
+      echoPin = echoPinFront;
     case 2:
       trigPin = trigPinRight;
-      echoPint = echoPinRight;
+      echoPin = echoPinRight;
     case 3:
       trigPin = trigPinBack;
-      echoPint = echoPinBack;
+      echoPin = echoPinBack;
     case 4:
       trigPin = trigPinLeft;
-      echoPint = echoPinLeft;
+      echoPin = echoPinLeft;
     default:
       trigPin = trigPinRight;
-      echoPint = echoPinRight;
+      echoPin = echoPinRight;
   }
 
   
