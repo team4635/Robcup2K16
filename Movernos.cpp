@@ -17,6 +17,7 @@ float angle = 0;
 int HistorialMovimientos [100];
 int countHistorial = 0;
 
+
 void motorsSetup()
 {
   vMotorLeft.attach(leftMotor);
@@ -63,8 +64,8 @@ void RegistroHistorial(int DirMovimiento)
 
 
 //if solo un camino, empezar a registrar el camino.
-  int PosicionActual [] = getPosition();
-  char CeldaActual = Universo[PosicionActual[0]][PosicionActual[1]][0].letra;
+  pos PosicionActual = getPosition();
+  char CeldaActual = Universo[PosicionActual.x][PosicionActual.y][PosicionActual.z].letra;
   if( CeldaActual == 'K'||CeldaActual == 'L'||CeldaActual == 'M'||CeldaActual == 'N')
 
 

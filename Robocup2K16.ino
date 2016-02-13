@@ -30,7 +30,11 @@ struct celda{
   boolean bPosicion;
   char cLetra;
 }
-
+struct pos{
+  int x;
+  int y;
+  int z;
+}
 // This is our array of the map.
 celda universo[mapSize][mapSize][mapHeight];
 
