@@ -54,20 +54,3 @@ void MovernosHacia(int Posibilidad)
     vMotorBack.write(x+y-angle*factor);     
     }
 }
-long getDistance()
-{
-  long lDuration = 0;
-   /* The following trigPin/echoPin cycle is used to determine the
-    distance of the nearest object by bouncing soundwaves off of it. */
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-
-  digitalWrite(trigPin, LOW);
-  lDuration = pulseIn(echoPin, HIGH);
-
-  //Calculate the distance (in cm) based on the speed of sound.
-  return lDuration / 58.2;
-}
