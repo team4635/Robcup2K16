@@ -25,6 +25,11 @@
 #define colorPinSensorBaud 4800
 #define waitDelay 200
 
+// Received RGB values from ColorPAL
+int red;
+int grn;
+int blu;
+
 // Set up two software serials on the same pin.
 SoftwareSerial serin(colorPinSensor, unused);
 SoftwareSerial serout(unused, colorPinSensor);
@@ -53,6 +58,33 @@ void sensorSetup() {
 
   serin.begin(sioBaud);            // Set up serial port for receiving
   pinMode(colorPinSensor, INPUT);
+}
+
+// Parse the hex data into integers
+void parseAndPrint(char * data) {
+  sscanf (data, "%3x%3x%3x", &red, &grn, &blu);
+  char buffer[32];
+  sprintf(buffer, "R%4.4d G%4.4d B%4.4d", red, grn, blu);
+  Serial.println(buffer);
+}
+
+void readData() {
+  char buffer[32];
+ 
+  if (serin.available() > 0) {
+    // Wait for a $ character, then read three 3 digit hex numbers
+    buffer[0] = serin.read();
+    if (buffer[0] == '$') {
+      for(int i = 0; i < 9; i++) {
+        while (serin.available() == 0);     // Wait for next input character
+        buffer[i] = serin.read();
+        if (buffer[i] == '$')               // Return early if $ character encountered
+          return;
+      }
+      parseAndPrint(buffer);
+      delay(10);
+    }
+  }
 }
 
 long getDistance(int iPos)
